@@ -1,0 +1,27 @@
+package practice;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
+public class StackUsingDeque {
+	private static Deque<Integer> deque;
+public static void main (String args[]) {
+	 deque = new LinkedList<Integer>();
+	push(10);
+	push(20);
+	push(30);
+	push(80);
+	System.out.println(pop());
+}
+
+private static int pop() {
+	int x=deque.removeFirst();
+	return x;
+}
+
+static void push(int item) {
+	deque.addFirst(item);
+	
+}
+
+}
