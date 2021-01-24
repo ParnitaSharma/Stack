@@ -1,0 +1,21 @@
+import java.util.Stack;
+
+public class LargestNumber {
+public static void main(String args[]) {
+	Stack<Integer> s1 = new Stack<Integer>();
+	Stack<Integer> s2 = new Stack<Integer>();
+	int arr[] = {2,34,45,21,14,5};
+	for(int i=0;i<arr.length;i++) {
+		
+		s1.add(arr[i]);
+	}
+	s2.add(arr[0]);
+	while(!s1.isEmpty()) {
+		int poppedElement = s1.pop();
+		if(poppedElement>s2.peek()) {
+			s2.add(poppedElement);
+		}
+	}
+	System.out.println(s2.pop());
+}
+}
