@@ -1,0 +1,30 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class StackUsingTwoQueues {
+public static void main(String args[]) {
+	Queue<Integer> st1 = new LinkedList<Integer>();
+	Queue<Integer> st2= new LinkedList<Integer>();
+	int arr[]= {1,2,3,4,5};
+	for(int i=0;i<arr.length;i++) {
+	    if(st1.isEmpty()) {
+	    	st1.add(arr[i]);
+	    }
+	    else {
+	    	while(!st1.isEmpty()) {
+	    	st2.add(st1.remove());
+	    	}
+	    	st1.add(arr[i]);
+	    	while(!st2.isEmpty()) {
+	    	st1.add(st2.remove());
+	    }
+	}
+	}
+	while(!st1.isEmpty()) {
+		System.out.println(st1.remove());
+	}
+
+}
+}
+
