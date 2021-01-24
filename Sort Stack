@@ -1,0 +1,31 @@
+import java.util.Stack;
+
+public class SortStack {
+public static void main(String args[]) {
+	int temp=0;
+	Stack<Integer> stack1 = new Stack<>();
+	Stack<Integer> tempStack = new Stack<>();
+	int arr[] = {2,1,4,5,3};
+	for(int i=0;i<arr.length;i++) {
+		stack1.push(arr[i]);
+	}
+	tempStack.push(stack1.pop());
+	
+	while(!stack1.isEmpty()) {
+	 temp = stack1.pop();
+	 if(temp>tempStack.peek()) {
+		 tempStack.push(temp);
+	 }
+	 else {
+		 while(!tempStack.isEmpty()) {
+			 stack1.push(tempStack.pop());
+		 }
+		 tempStack.push(temp);
+		 }
+	 }
+	while(!tempStack.isEmpty()) {
+		System.out.println(tempStack.pop());
+	}
+}
+}
+
